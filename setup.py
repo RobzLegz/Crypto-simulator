@@ -1,12 +1,14 @@
 import pygame
 import random
 
-from transactions import buy, sell, refresh_user_info, calculate_price
+from transactions import buy, sell, buy_all, refresh_user_info, calculate_price
 
 def set_up(vallet_id):
     user_data = refresh_user_info(vallet_id)
     vallet_id, ammount, crypto_count, total_coins = user_data[0], user_data[1], user_data[2], user_data[3]
     price = calculate_price(int(total_coins))
+    if not price:
+        price = "YOU WIN!!!"
 
     pygame.init()
     width, height = 800, 500
@@ -64,6 +66,8 @@ def set_up(vallet_id):
                         user_data = refresh_user_info(vallet_id)
                         vallet_id, ammount, crypto_count, total_coins = user_data[0], user_data[1], user_data[2], user_data[3]
                         price = calculate_price(int(total_coins))
+                        if not price:
+                            price = "YOU WIN!!!"
 
                         #ACTIVE_IMAGE = get_random_image()
 
@@ -73,6 +77,8 @@ def set_up(vallet_id):
                         user_data = refresh_user_info(vallet_id)
                         vallet_id, ammount, crypto_count, total_coins = user_data[0], user_data[1], user_data[2], user_data[3]
                         price = calculate_price(int(total_coins))
+                        if not price:
+                            price = "YOU WIN!!!"
 
                         #ACTIVE_IMAGE = get_random_image()
 

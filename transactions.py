@@ -28,8 +28,31 @@ def buy(vallet_id, x):
 
 
         with open("users.txt", "w") as f:
-            f.write(f"{vallet_id};{int(amount)};{user_coins};{coins_left}")
+            f.write(f"{vallet_id};{amount};{user_coins};{coins_left}")
     
+def buy_all(vallet_id):
+    user_info = get_user_info(vallet_id)
+
+    amount = int(user_info[1])
+    coins_left = int(user_info[3])
+
+    coin_price = calculate_price(coins_left)
+    while amount >= coin_price:
+        user_info = get_user_info(vallet_id)
+
+        user_coins = int(user_info[2])
+        amount = int(user_info[1])
+        coins_left = int(user_info[3])
+
+        coin_price = calculate_price(coins_left)
+
+        user_coins += 1
+        amount -= coin_price
+        coins_left -= 1
+
+        with open("users.txt", "w") as f:
+            f.write(f"{vallet_id};{amount};{user_coins};{coins_left}")
+
 
 def sell(vallet_id):
     user_info = get_user_info(vallet_id)
@@ -59,7 +82,7 @@ def sell(vallet_id):
             scan_count += 1
 
     with open("users.txt", "w") as f:
-        f.write(f"{vallet_id};{int(amount)};{user_coins};{coins_left}")
+        f.write(f"{vallet_id};{amount};{user_coins};{coins_left}")
 
 
 def refresh_user_info(vallet_id):
@@ -73,15 +96,17 @@ def refresh_user_info(vallet_id):
 
     
 def calculate_price(coins_left):
-    coin_price = 1000000 / coins_left 
+    if coins_left > 0:
+        coin_price = 1000000 / coins_left 
 
-    search_dot = str(coin_price).find(".")
+        search_dot = str(coin_price).find(".")
+            
+        if search_dot:
+            price_arr = str(coin_price).split(".")
+            coin_price = int(price_arr[0])
         
-    if search_dot:
-        price_arr = str(coin_price).split(".")
-        coin_price = int(price_arr[0])
-    
-    return coin_price
+        return coin_price
+    print("You win!!!")
 
 
 def get_user_info(vallet_id):
