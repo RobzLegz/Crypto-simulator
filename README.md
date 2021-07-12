@@ -2,17 +2,15 @@
 <br/>
 <h2>Setup:</h2>
 <h3>Install</h3>
-<code>
-    <p>pip install -r requirements.txt</p>
-    <p>pip3 install -r requirements.txt</p>
-</code>
+<p>pip install -r requirements.txt</p>
+<p>pip3 install -r requirements.txt</p>
 <h3>Run</h3>
 <h4>Game:</h4>
-<code>python simulator.py</code>
-<code>python3 simulator.py</code>
+<p>python simulator.py</p>
+<p>python3 simulator.py</p>
 <h4>Mining:</h4>
-<code>python mine.py</code>
-<code>python3 mine.py</code>
+<p>python mine.py</p>
+<p>python3 mine.py</p>
 <h2>Rules:</h2>
 <h3>Gameplay</h3>
 <ul>
