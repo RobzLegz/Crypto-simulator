@@ -1,5 +1,4 @@
 # Crypto-simulator
-<br/>
 <h2>Setup:</h2>
 <h3>Install</h3>
 <p>pip install -r requirements.txt</p>
