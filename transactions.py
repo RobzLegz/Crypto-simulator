@@ -75,8 +75,6 @@ def refresh_user_info(vallet_id):
 def calculate_price(coins_left):
     coin_price = 1000000 / coins_left 
 
-    print(coin_price)
-
     search_dot = str(coin_price).find(".")
         
     if search_dot:
