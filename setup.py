@@ -16,6 +16,8 @@ def set_up(vallet_id):
 
     WHITE = (255, 255, 255)
     BLACK = (0, 0, 0)
+    DARK_BLUE = (214, 18, 27)
+
     SMALL_FONT = pygame.font.Font("freesansbold.ttf", 20)
     LARGE_FONT = pygame.font.Font("freesansbold.ttf", 30)
 
@@ -32,12 +34,12 @@ def set_up(vallet_id):
         screen = pygame.display.set_mode([width, height])
         pygame.display.set_caption("Crypto trader")
 
-        screen.fill(WHITE)
+        screen.fill(DARK_BLUE)
 
-        vallet_text = SMALL_FONT.render(f"{vallet_id}", True, BLACK, WHITE)
-        amount_text = SMALL_FONT.render(f"{ammount}$", True, BLACK, WHITE)
-        crypto_text = SMALL_FONT.render(f"{crypto_count}", True, BLACK, WHITE)
-        price_text = SMALL_FONT.render(f"{price}", True, BLACK, WHITE)
+        vallet_text = SMALL_FONT.render(f"{vallet_id}", True, WHITE, BLACK)
+        amount_text = SMALL_FONT.render(f"{ammount}$", True, WHITE, BLACK)
+        crypto_text = SMALL_FONT.render(f"{crypto_count}", True, WHITE, BLACK)
+        price_text = SMALL_FONT.render(f"{price}", True, WHITE, BLACK)
 
         pygame.draw.rect(screen, BLACK, sell_btn)
         pygame.draw.rect(screen, BLACK, buy_btn)
@@ -46,9 +48,9 @@ def set_up(vallet_id):
         screen.blit(buy_btn_text, [500, 200])
 
         screen.blit(price_text, [350, 100])
-        screen.blit(vallet_text, [300, 10])
+        screen.blit(vallet_text, [280, 10])
         screen.blit(amount_text, [350, 10])
-        screen.blit(crypto_text, [450, 10])
+        screen.blit(crypto_text, [500, 10])
 
         screen.blit(WALL_STREET_IMAGE, [200, 330])
         #screen.blit(ACTIVE_IMAGE, [-200, 0])
@@ -73,6 +75,7 @@ def set_up(vallet_id):
 
                     elif buy_btn.collidepoint(event.pos):
                         buy(vallet_id, 1)
+                        #buy_all(vallet_id)
 
                         user_data = refresh_user_info(vallet_id)
                         vallet_id, ammount, crypto_count, total_coins = user_data[0], user_data[1], user_data[2], user_data[3]
