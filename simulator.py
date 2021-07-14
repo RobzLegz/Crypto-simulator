@@ -3,7 +3,7 @@ from setup import set_up as play
 
 
 def start_game():
-    TOTAL_COINS = 2000
+    TOTAL_COINS = 5000
 
     user_data = login(TOTAL_COINS)
     vallet_id = user_data[0]
