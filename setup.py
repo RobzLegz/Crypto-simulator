@@ -74,8 +74,8 @@ def set_up(vallet_id):
                         #ACTIVE_IMAGE = get_random_image()
 
                     elif buy_btn.collidepoint(event.pos):
-                        buy(vallet_id, 1)
-                        #buy_all(vallet_id)
+                        #buy(vallet_id, 1)
+                        buy_all(vallet_id)
 
                         user_data = refresh_user_info(vallet_id)
                         vallet_id, ammount, crypto_count, total_coins = user_data[0], user_data[1], user_data[2], user_data[3]
